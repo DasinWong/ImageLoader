@@ -64,7 +64,7 @@ ImageLoader
         .listen(new ImageListener() {
             @Override
             public Bitmap onReady(Bitmap bitmap) {
-				//不执行操作返回null或bitmap参数
+		//不执行操作返回null或bitmap参数
                 return rotateBitmap(bitmap, 90); 
             }
 
