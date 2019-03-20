@@ -27,19 +27,23 @@ implementation 'com.github.dasinwong:permissionhelper:1.2'
 | with | 创建BitmapRequest对象的静态方法 |
 ### BitmapRequest
 Bitmap请求对象，下载，缓存，显示等操作均有此对象实现
+
 | 方法 | 描述 |
 | :-------------: | :-------------: |
 | load | 加载一个网络图片 |
 | loading | 加载中显示的本地图片 |
 | listen | 添加一个加载监听 |
 | into | 显示图片到ImageView对象 |
+
 ### ImageListener
 图片加载过程监听接口类
+
 | 方法 | 描述 |
 | :-------------: | :-------------: |
 | onReady | 对加载出的图片进行操作后再展示 |
 | onComplete | 图片加载完成 |
 | onError | 图片加载错误 |
+
 ### ImageError
 图片加载错误枚举
 
