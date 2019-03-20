@@ -18,7 +18,7 @@ allprojects {
 ```
 Module层级下的build.gradle文件
 ```
-implementation 'com.github.dasinwong:permissionhelper:1.2'
+implementation 'com.github.dasinwong:imageloader1.0'
 ```
 ## 类及其方法介绍
 ### ImageLoader
