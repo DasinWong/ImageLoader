@@ -29,7 +29,7 @@ implementation 'com.github.dasinwong:imageloader:1.0'
 | with | 创建BitmapRequest对象的静态方法 |
 
 ### BitmapRequest
-Bitmap请求对象，下载，缓存，显示等操作均有此对象实现
+Bitmap请求对象，下载，缓存，显示等操作均由此对象实现
 
 | 方法 | 描述 |
 | :-------------: | :-------------: |
