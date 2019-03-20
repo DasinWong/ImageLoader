@@ -80,3 +80,7 @@ ImageLoader
         })
     .into(imageView);
 ```
+## 需要权限
+- INTERNET
+- WRITE_EXTERNAL_STORAGE
+- READ_EXTERNAL_STORAGE
