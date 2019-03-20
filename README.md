@@ -22,17 +22,20 @@ implementation 'com.github.dasinwong:permissionhelper:1.2'
 ```
 ## 类及其方法介绍
 ### ImageLoader
+框架入口类
+
 | 方法 | 描述 |
 | :-------------: | :-------------: |
 | with | 创建BitmapRequest对象的静态方法 |
+
 ### BitmapRequest
 Bitmap请求对象，下载，缓存，显示等操作均有此对象实现
 
 | 方法 | 描述 |
 | :-------------: | :-------------: |
-| load | 加载一个网络图片 |
-| loading | 加载中显示的本地图片 |
-| listen | 添加一个加载监听 |
+| load | 目前只能加载网络图片（url地址） |
+| loading | 加载过程中显示的本地图片（可选调用） |
+| listen | 添加一个加载监听（可选调用） |
 | into | 显示图片到ImageView对象 |
 
 ### ImageListener
@@ -40,9 +43,9 @@ Bitmap请求对象，下载，缓存，显示等操作均有此对象实现
 
 | 方法 | 描述 |
 | :-------------: | :-------------: |
-| onReady | 对加载出的图片进行操作后再展示 |
+| onReady | 图片加载后显示前 |
 | onComplete | 图片加载完成 |
-| onError | 图片加载错误 |
+| onError | 图片加载发生错误 |
 
 ### ImageError
 图片加载错误枚举
@@ -55,24 +58,25 @@ Bitmap请求对象，下载，缓存，显示等操作均有此对象实现
 ## 使用方法
 ```
 ImageLoader
-                .with(this)
-                .load("http://dn.dengpaoedu.com/glide/1.jpeg")
-                .loading(R.mipmap.ic_launcher)
-                .listen(new ImageListener() {
-                    @Override
-                    public Bitmap onReady(Bitmap bitmap) {
-                        return rotateBitmap(bitmap, 90);
-                    }
+        .with(this)
+        .load("https://www.baidu.com/img/bd_logo1.png")
+        .loading(R.mipmap.ic_launcher)
+        .listen(new ImageListener() {
+            @Override
+            public Bitmap onReady(Bitmap bitmap) {
+				//不执行操作返回null或bitmap参数
+                return rotateBitmap(bitmap, 90); 
+            }
 
-                    @Override
-                    public void onComplete() {
-                        Log.e("ImageListener", "图片加载完成");
-                    }
+            @Override
+            public void onComplete() {
+                Log.e("ImageListener", "图片加载完成");
+            }
 
-                    @Override
-                    public void onError(ImageError imageError) {
-                        Log.e("ImageListener", imageError + "");
-                    }
-                })
-                .into(imageView);
+            @Override
+            public void onError(ImageError imageError) {
+                Log.e("ImageListener", imageError + "");
+            }
+        })
+    .into(imageView);
 ```
